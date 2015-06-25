@@ -37,7 +37,5 @@ multiCapabilities: [{
     isVerbose: true,
     showTiming: true,
     defaultTimeoutInterval: 90000
-  },
-   directConnect: true
-
+  }
 };
