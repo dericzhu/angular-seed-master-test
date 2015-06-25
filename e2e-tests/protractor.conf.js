@@ -26,10 +26,7 @@ multiCapabilities: [{
     'name': 'Protractor suite tests'
   }]  ,
 
-  proxy: {
-       proxyType: 'manual',
-       httpProxy: 'localhost:8081'
-    },
+
 
  // baseUrl: 'http://localhost:8000/app/',
  baseUrl: env.baseUrl,
