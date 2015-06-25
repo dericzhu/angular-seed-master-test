@@ -7,42 +7,31 @@ exports.config = {
     '*.js'
   ],
 
- // capabilities: {
+  // capabilities: {
   //  'browserName': 'chrome'
   //}
 
-    capabilities: {
-    'browserName':
-        (process.env.TEST_BROWSER_NAME || 'chrome'),
-    'version':
-        (process.env.TEST_BROWSER_VERSION || 'ANY')
+  capabilities: {
+    'browserName': (process.env.TEST_BROWSER_NAME || 'chrome'),
+    'version': (process.env.TEST_BROWSER_VERSION || 'ANY')
   },
 
 
-multiCapabilities: [{
-    'browserName': 'chrome',
-     'chromeOptions': {
-    'args': ['--no-sandbox', '--test-type=browser']
-  },
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Protractor suite tests'
-  },
-  
-  {
-    'browserName': 'chromium-browser',
-     'chromeOptions': {
-    'args': ['--no-sandbox', '--test-type=browser']
-  },
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'chromium-browser suite tests'
-  }]  ,
+  multiCapabilities: [{
+      'browserName': 'chrome',
+      'chromeOptions': {
+        'args': ['--no-sandbox', '--test-type=browser']
+      },
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER,
+      'name': 'Protractor suite tests'
+    }
+  ],
 
 
 
- // baseUrl: 'http://localhost:8000/app/',
- baseUrl: env.baseUrl,
+  // baseUrl: 'http://localhost:8000/app/',
+  baseUrl: env.baseUrl,
 
   framework: 'jasmine',
 
@@ -52,3 +41,18 @@ multiCapabilities: [{
     defaultTimeoutInterval: 90000
   }
 };
+
+  if (process.env.TRAVIS) {
+    config.multiCapabilities = [
+
+      {
+        'browserName': 'chromium-browser',
+        'chromeOptions': {
+          'args': ['--no-sandbox', '--test-type=browser']
+        },
+        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+        'build': process.env.TRAVIS_BUILD_NUMBER,
+        'name': 'chromium-browser suite tests'
+      }
+    ]
+  };
