@@ -28,6 +28,7 @@ multiCapabilities: [{
     'build': process.env.TRAVIS_BUILD_NUMBER,
     'name': 'Protractor suite tests'
   },
+  
   {
     'browserName': 'chromium-browser',
      'chromeOptions': {
