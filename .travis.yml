@@ -13,19 +13,18 @@ before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-   
+
 
 before_script:
-- npm run update-webdriver
   - export DISPLAY=:99.0
  - sh -e /etc/init.d/xvfb start
  - npm start > /dev/null &
   #- npm start
- 
+ - npm run update-webdriver
  - sleep 5 # give server time to start
 
 script:
 #- npm run test-single-run
 #- npm run protractor
- - node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots 
- - node_modules/.bin/protractor e2e-tests/protractor.conf.js 
+ - node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
+ - node_modules/.bin/protractor e2e-tests/protractor.conf.js
