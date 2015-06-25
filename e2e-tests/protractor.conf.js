@@ -1,3 +1,5 @@
+var env = require('./environment.js');
+
 exports.config = {
   allScriptsTimeout: 11000,
 
@@ -5,16 +7,33 @@ exports.config = {
     '*.js'
   ],
 
-  capabilities: {
-    'browserName': 'chrome'
+ // capabilities: {
+  //  'browserName': 'chrome'
+  //}
+
+    capabilities: {
+    'browserName':
+        (process.env.TEST_BROWSER_NAME || 'chrome'),
+    'version':
+        (process.env.TEST_BROWSER_VERSION || 'ANY')
   },
 
-  baseUrl: 'http://localhost:8000/app/',
+
+multiCapabilities: [{
+    'browserName': 'chrome',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'Protractor suite tests'
+  }]  ,
+
+ // baseUrl: 'http://localhost:8000/app/',
+ baseUrl: env.baseUrl,
 
   framework: 'jasmine',
 
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
-  },
-  directConnect: true
+    isVerbose: true,
+    showTiming: true,
+    defaultTimeoutInterval: 90000
+  }
 };
