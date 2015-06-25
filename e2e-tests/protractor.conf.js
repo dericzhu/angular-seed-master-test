@@ -37,4 +37,6 @@ multiCapabilities: [{
     defaultTimeoutInterval: 90000
   },
   directConnect: true
+
+
 };
