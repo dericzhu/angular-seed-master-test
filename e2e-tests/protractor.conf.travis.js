@@ -17,16 +17,18 @@ exports.config = {
   },
 
 
-  multiCapabilities: [{
-      'browserName': 'chrome',
-      'chromeOptions': {
-        'args': ['--no-sandbox', '--test-type=browser']
-      },
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      'build': process.env.TRAVIS_BUILD_NUMBER,
-      'name': 'Protractor suite tests'
-    }
-  ],
+  multiCapabilities:[
+
+      {
+        'browserName': 'chromium-browser',
+        'chromeOptions': {
+          'args': ['--no-sandbox', '--test-type=browser']
+        },
+        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+        'build': process.env.TRAVIS_BUILD_NUMBER,
+        'name': 'chromium-browser suite tests'
+      }
+    ],
 
 
 
@@ -42,3 +44,4 @@ exports.config = {
   }
 };
 
+ 
