@@ -11,20 +11,12 @@ exports.config = {
   //  'browserName': 'chrome'
   //}
 
+  capabilities: {
+    'browserName': (process.env.TEST_BROWSER_NAME),
+    'version': (process.env.TEST_BROWSER_VERSION || 'ANY')
+  },
 
 
-  multiCapabilities:[
-
-      {
-        'browserName': 'chromium-browser',
-        'chromeOptions': {
-          'args': ['--no-sandbox', '--test-type=browser']
-        },
-        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-        'build': process.env.TRAVIS_BUILD_NUMBER,
-        'name': 'chromium-browser suite tests'
-      }
-    ],
 
 
 
