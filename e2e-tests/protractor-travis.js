@@ -26,8 +26,7 @@ multiCapabilities: [{
     'name': 'Protractor smoke tests',
     'version': '41',
     'selenium-version': '2.45.0',
-    'chromedriver-version': '2.14',
-    'platform': 'OS X 10.9'
+    'chromedriver-version': '2.14'
   }],
 
 
