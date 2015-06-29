@@ -9,7 +9,10 @@ node_js:
 # https://github.com/travis-ci/travis-ci/issues/272#issuecomment-14402117
 # http://stackoverflow.com/questions/19255976/how-to-make-travis-execute-angular-tests-on-chrome-please-set-env-variable-chr
 
-
+addons:
+  sauce_connect:
+    username: "dericzhu"
+    access_key: "928f0df8-a7f3-417e-ae94-4c8a205ad290"
 env:
   global:
     - SAUCE_USERNAME=dericzhu
@@ -17,8 +20,7 @@ env:
     #- LOGS_DIR=/tmp/protractor-build/logs
     #- BROWSER_PROVIDER_READY_FILE=/tmp/sauce-connect-ready
 
-  addons:
-  		sauce_connect: true
+
 #
 before_install:
   - export CHROME_BIN=chromium-browser
