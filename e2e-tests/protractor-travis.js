@@ -21,23 +21,14 @@ exports.config = {
 
 multiCapabilities: [{
     'browserName': 'chrome',
-     'chromeOptions': {
-    'args': ['--no-sandbox', '--test-type=browser']
-  },
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Protractor suite tests'
-  },
-
-  {
-    'browserName': 'chromium-browser',
-     'chromeOptions': {
-    'args': ['--no-sandbox', '--test-type=browser']
-  },
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'chromium-browser suite tests'
-  }]  ,
+    'name': 'Protractor smoke tests',
+    'version': '41',
+    'selenium-version': '2.45.0',
+    'chromedriver-version': '2.14',
+    'platform': 'OS X 10.9'
+  }],
 
 
 
