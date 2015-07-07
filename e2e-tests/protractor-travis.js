@@ -7,6 +7,9 @@ exports.config = {
     '*.js'
   ],
 
+  sauceUser :process.env.SAUCE_USERNAME,
+  sauceKey :process.env.SAUCE_ACCESS_KEY,
+
  // capabilities: {
   //  'browserName': 'chrome'
   //}
